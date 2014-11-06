@@ -1,6 +1,6 @@
 {
     "name": "contao-components/datepicker",
-    "type": "component",
+    "type": "contao-component",
     "description": "Date picker integration for Contao Open Source CMS",
     "license": "MIT",
     "authors": [
@@ -10,19 +10,6 @@
         }
     ],
     "require": {
-        "robloach/component-installer": "~0.0"
-    },
-    "extra": {
-        "component": {
-            "scripts": [
-                "js/datepicker.min.js"
-            ],
-            "styles": [
-                "css/datepicker.min.css"
-            ],
-            "files": [
-                "images/*"
-            ]
-        }
+        "contao-components/installer": "~1.0"
     }
 }
