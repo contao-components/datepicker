@@ -42,7 +42,7 @@
   text-align: center;
   border-bottom: inset 1px rgba(204, 204, 204, 0.55);
   padding-bottom: 0.3em;
-  font-weight: bold;
+  font-weight: 600;
 }
 .datepicker_bootstrap .header .title {
   text-align: center;
