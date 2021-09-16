@@ -325,7 +325,7 @@ var Picker = new Class({
 	setTitle: function(content, fn){
 		if (!fn) fn = Function.from;
 		this.titleText.empty().adopt(
-			Array.from(content).map(function(item, i){
+			Array.convert(content).map(function(item, i){
 				return typeOf(item) == 'element'
 					? item
 					: new Element('div.column', {text: fn(item, this.options)}).addClass('column_' + (i + 1));
@@ -399,8 +399,8 @@ Picker.Attach = new Class({
 		if (typeOf(attachTo) == 'string') attachTo = document.id(attachTo);
 		if (typeOf(toggle) == 'string') toggle = document.id(toggle);
 
-		var elements = Array.from(attachTo),
-			toggles = Array.from(toggle),
+		var elements = Array.convert(attachTo),
+			toggles = Array.convert(toggle),
 			allElements = [].append(elements).combine(toggles),
 			self = this;
 
@@ -474,8 +474,8 @@ Picker.Attach = new Class({
 		if (typeOf(attachTo) == 'string') attachTo = document.id(attachTo);
 		if (typeOf(toggle) == 'string') toggle = document.id(toggle);
 
-		var elements = Array.from(attachTo),
-			toggles = Array.from(toggle),
+		var elements = Array.convert(attachTo),
+			toggles = Array.convert(toggle),
 			allElements = [].append(elements).combine(toggles),
 			self = this;
 
@@ -596,7 +596,7 @@ this.DatePicker = Picker.Date = new Class({
 			return (options.startView == what) && (options.startView = newViews[i]);
 		});
 
-		options.canAlwaysGoUp = options.canAlwaysGoUp ? Array.from(options.canAlwaysGoUp) : [];
+		options.canAlwaysGoUp = options.canAlwaysGoUp ? Array.convert(options.canAlwaysGoUp) : [];
 
 		// Set the min and max dates as Date objects
 		if (options.minDate){
