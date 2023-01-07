@@ -42,7 +42,14 @@ gulp.task('minify-js', function (cb) {
 gulp.task('minify-images', function (cb) {
     pump([
             gulp.src('images/*.svg'),
-            svgo(),
+            svgo({
+                multipass: true,
+                plugins: [{
+                    inlineStyles: {
+                        onlyMatchedOnce: false
+                    }
+                }]
+            }),
             gulp.dest('images')
         ],
         cb
