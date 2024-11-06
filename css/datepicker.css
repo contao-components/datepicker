@@ -44,6 +44,7 @@ html[data-color-scheme="dark"] {
     border: 1px solid var(--content-border);
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
     border-radius: 3px;
+    z-index: 3;
 }
 
 .datepicker_bootstrap .header {
