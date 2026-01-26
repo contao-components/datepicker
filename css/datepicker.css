@@ -1,33 +1,6 @@
 /*
  * Made by Nima Izadi (nim.izadi@gmail.com / @Nima_Izadi / github.com/nim1989)
  */
-:root {
-    --text: #222;
-    --content-bg: #fff;
-    --content-border: #c5c8cc;
-    --border: #e0e0e2;
-    --form-border: #aaa;
-    --form-bg: #fff;
-    --form-button: #eee;
-    --form-button-hover: #f6f6f6;
-    --info: #808080;
-    --datepicker-hover: #eee;
-}
-
-html[data-color-scheme="dark"] {
-    color-scheme: dark;
-    --text: #ddd;
-    --content-bg: #1b1d21;
-    --content-border: #4e5156;
-    --border: #3a3c40;
-    --form-border: #44464b;
-    --form-bg: #151619;
-    --form-button: #31333a;
-    --form-button-hover: #383a42;
-    --info: #9095a2;
-    --datepicker-hover: #393e46;
-}
-
 .selected-button, .datepicker_bootstrap .days .day.selected, .datepicker_bootstrap .days .day.selected:hover, .datepicker_bootstrap .months .month.selected, .datepicker_bootstrap .months .month.selected:hover, .datepicker_bootstrap .years .year.selected, .datepicker_bootstrap .years .year.selected:hover {
     background-color: #8ab858;
     color: white;
@@ -36,20 +9,20 @@ html[data-color-scheme="dark"] {
 .datepicker_bootstrap {
     position: absolute;
     font-size: 1em;
-    color: var(--text);
+    color: var(--text, #222);
     line-height: normal;
     width: 18em;
     padding: 0.3em;
-    background-color: var(--content-bg);
-    border: 1px solid var(--content-border);
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
+    background-color: var(--content-bg, #fff);
+    border: 1px solid var(--content-border, #e0e0e2);
+    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 10%);
+    border-radius: var(--border-radius, 3px);
     z-index: 3;
 }
 
 .datepicker_bootstrap .header {
     text-align: center;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border, #eaeaec);
     padding-bottom: 0.3em;
     font-weight: 600;
 }
@@ -63,11 +36,11 @@ html[data-color-scheme="dark"] {
 .datepicker_bootstrap .header .title .titleText {
     margin: auto;
     padding: 0.5em;
-    border-radius: 3px;
+    border-radius: var(--border-radius, 3px);
 }
 
 .datepicker_bootstrap .header .title .titleText:hover {
-    background-color: var(--datepicker-hover);
+    background-color: var(--nav-bg-hover, #eaeaec);
 }
 
 .datepicker_bootstrap .header .previous, .datepicker_bootstrap .header .next {
@@ -76,27 +49,27 @@ html[data-color-scheme="dark"] {
     overflow: hidden;
     top: 1em;
     display: block;
-    border-top: 6px solid var(--content-bg);
-    border-bottom: 6px solid var(--content-bg);
+    border-top: 6px solid var(--content-bg, #fff);
+    border-bottom: 6px solid var(--content-bg, #fff);
     height: 0;
 }
 
 .datepicker_bootstrap .header .previous {
     left: 0.4em;
-    border-right: 7px solid var(--info);
+    border-right: 7px solid var(--info, #808082);
 }
 
 .datepicker_bootstrap .header .previous:hover {
-    border-right-color: var(--text);
+    border-right-color: var(--text, #222);
 }
 
 .datepicker_bootstrap .header .next {
     right: 0.4em;
-    border-left: 7px solid var(--info);
+    border-left: 7px solid var(--info, #808082);
 }
 
 .datepicker_bootstrap .header .next:hover {
-    border-left-color: var(--text);
+    border-left-color: var(--text, #222);
 }
 
 .datepicker_bootstrap .header .closeButton {
@@ -135,7 +108,7 @@ html[data-color-scheme="dark"] {
 }
 
 .datepicker_bootstrap .days .otherMonth {
-    color: var(--info);
+    color: var(--info, #808082);
 }
 
 .datepicker_bootstrap .months td {
@@ -148,11 +121,11 @@ html[data-color-scheme="dark"] {
 
 .datepicker_bootstrap .days .day, .datepicker_bootstrap .months .month, .datepicker_bootstrap .years .year {
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: var(--border-radius, 3px);
 }
 
 .datepicker_bootstrap .days .day:hover, .datepicker_bootstrap .months .month:hover, .datepicker_bootstrap .years .year:hover {
-    background-color: var(--datepicker-hover);
+    background-color: var(--nav-bg-hover, #eaeaec);
 }
 
 .datepicker_bootstrap .unavailable {
@@ -183,6 +156,11 @@ html[data-color-scheme="dark"] {
 }
 
 .datepicker_bootstrap .time .hour,
+.datepicker_bootstrap .time .minutes {
+    border-radius: var(--border-radius, 3px);
+}
+
+.datepicker_bootstrap .time .hour,
 .datepicker_bootstrap .time .separator,
 .datepicker_bootstrap .time .minutes {
     width: 3em;
@@ -200,13 +178,13 @@ html[data-color-scheme="dark"] {
     display: block;
     font-size: 1.5em;
     width: 5em;
-    padding: 0.2em;
+    padding: 0.4em;
     text-align: center;
     cursor: pointer;
     box-shadow: none;
     outline: none;
-    border-radius: 2px;
-    background: var(--form-button);
+    border-radius: var(--border-radius, 3px);
+    background: var(--form-button, #f3f3f5);
 }
 
 .datepicker_bootstrap .time .ok:active {
@@ -214,10 +192,10 @@ html[data-color-scheme="dark"] {
 }
 
 .datepicker_bootstrap .time .ok:hover {
-    background-color: var(--form-button-hover);
+    background-color: var(--form-button-hover, #f6f6f8);
 }
 
 .datepicker_bootstrap input {
-    background: var(--form-bg);
-    border: 1px solid var(--form-border);
+    background: var(--form-bg, #fff);
+    border: 1px solid var(--form-border, #aaa);
 }
