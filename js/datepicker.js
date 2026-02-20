@@ -638,13 +638,15 @@ Picker.Date = new Class({
                 if (this.inputs[index]) input = this.inputs[index];
             }
 
-            this.getInputDate(input);
+            this.getInputDate(input, options.format);
             this.input = input;
             this.setColumns(this.originalColumns);
         }.bind(this), true);
     },
 
-    getInputDate: function(input) {
+    getInputDate: function(input, format) {
+        Date.defineParser(format);
+
         this.date = new Date();
         if (!input) return;
 
